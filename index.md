@@ -4,5 +4,5 @@ title: 8A.FYI
 ---
 
 <center>
-![alonzo](alonzo.gif)
+<img src="alonzo.gif" style="width:100%" />
 </center>

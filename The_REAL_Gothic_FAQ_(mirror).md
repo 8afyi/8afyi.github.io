@@ -12,17 +12,12 @@ Your comments and contributions are welcome, but we'll probably ignore them. On 
 NOTE THE LACK OF DISCLAIMER. We didn't include a disclaimer because we stand behind what we say here. If what we say really bothers you, you're part of the problem.
 
 ## Table of Contents
-What Is Goth?
-
-The Look
-
-The Music
-
-The Scene
-
-Tips for Teens
-
-Miscellaneous Questions
+* [What Is Goth?](#what-is-goth)
+* [The Look](#the-look)
+* [The Music](#the-music)
+* [The Scene](#the-scene)
+* [Tips for Teens](#tips-for-teens)
+* [Miscellaneous Questions](#miscellaneous-questions)
 
 ## What Is Goth?
 

@@ -24,6 +24,7 @@ remote_theme: jekyll/minima
 # in order as they should show up.
 header_pages:
   - about.md
+  - tunes.md
   - avoid-getting-caught.md
   - copypaste.md
   - The_REAL_Gothic_FAQ_(mirror).md

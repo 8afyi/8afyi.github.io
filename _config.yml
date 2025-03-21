@@ -26,9 +26,8 @@ header_pages:
   - about.md
   - tunes.md
   - avoid-getting-caught.md
-  - copypast0e.md
   - freak.md
-  
+
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
   # Minima skin selection.

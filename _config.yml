@@ -26,9 +26,9 @@ header_pages:
   - about.md
   - tunes.md
   - avoid-getting-caught.md
-  - copypaste.md
-  - The_REAL_Gothic_FAQ_(mirror).md
-
+  - copypast0e.md
+  - freak.md
+  
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
   # Minima skin selection.

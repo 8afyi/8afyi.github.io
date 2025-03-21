@@ -38,7 +38,7 @@ minima:
   # solarized-light	   Light variant of solarized color scheme.
   # solarized-dark	   Dark variant of solarized color scheme.
   # solarized	         Adaptive skin for solarized color scheme skins.
-  skin: solarized
+  skin: auto
 
   # Set to `true` to show excerpts on the homepage.
   #show_excerpts: false

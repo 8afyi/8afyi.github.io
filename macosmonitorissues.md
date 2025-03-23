@@ -2,7 +2,6 @@
 title: "macOS multi-monitor problems"
 ---
 
-# macOS multi-monitor problems 
 
 List to keep track so that when I complain about macOS multi monitor I remember
 my reasons.

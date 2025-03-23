@@ -1,7 +1,5 @@
 ---
 title: "macOS multi-monitor problems"
-date: 2024-01-03
-categories: computer
 ---
 
 List to keep track so that when I complain about macOS multi monitor I remember

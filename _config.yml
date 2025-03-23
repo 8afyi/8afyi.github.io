@@ -22,11 +22,10 @@ remote_theme: jekyll/minima
 
 # If you want to link only specific pages in your header, use this and add the path to the pages
 # in order as they should show up.
-# header_pages:
-#  - about.md
-#  - tunes.md
-#  - avoid-getting-caught.md
-#  - freak.md
+ header_pages:
+  - tunes.md
+  - avoid-getting-caught.md
+  - freak.md
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:

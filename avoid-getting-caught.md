@@ -1,7 +1,9 @@
 ---
-title: To avoid getting caught
+title: Avoid getting caught
 layout: page
 ---
+
+# To avoid getting caught...
 
 - Wear shoes different size than your own
 - Glove with six fingers (so if you get caught on camera they'll think it's AI)

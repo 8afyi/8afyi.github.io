@@ -2,6 +2,8 @@
 title: "macOS multi-monitor problems"
 ---
 
+# macOS multi-monitor problems 
+
 List to keep track so that when I complain about macOS multi monitor I remember
 my reasons.
 
@@ -19,7 +21,7 @@ you need to get it back via mission control or whatever.
 
 ## General
 
-- MacBook Pro with M3 chip [can only support one external display](https://support.apple.com/en-us/HT213503)!  
+- MacBook Pro with non-Pro or non-Max chip [can only support one external display](https://support.apple.com/en-us/HT213503)!  
 
 - Cannot remember window or app position.  For example: open a file in 
 Preview, drag it to the other screen, close the window, open another

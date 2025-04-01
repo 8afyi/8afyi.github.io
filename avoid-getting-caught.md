@@ -1,5 +1,5 @@
 ---
-title: To avoid getting caught
+title: Avoid getting caught
 layout: page
 ---
 

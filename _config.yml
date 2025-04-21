@@ -1,9 +1,9 @@
 title: 8a-fyi
-author:
-  name: Mister Eight
-  email: information@8a.fyi
+#author:
+#  name: Mister Eight
+#  email: information@8a.fyi
 
-description: This is a super important website.
+#description: This is a super important website.
 
 theme: minima
 
@@ -13,8 +13,6 @@ header_pages:
   - freak.md
 
 minima:
-  skin: auto
-  date_format: "%Y-%m-%d %H:%M"
   social_links:
     - title: 8a on bluesky
       icon: bluesky

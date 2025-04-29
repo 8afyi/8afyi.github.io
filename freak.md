@@ -8,3 +8,4 @@ layout: page
 * Listens to The Smiths
 * Linux on the desktop
 * Never replies all, ever.
+* Silos are good, actually.

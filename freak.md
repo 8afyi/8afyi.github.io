@@ -9,3 +9,4 @@ layout: page
 * Linux on the desktop.
 * Never replies all, ever.
 * Silos are good, actually.
+* One space after periods but punctunation outside of quotation marks.

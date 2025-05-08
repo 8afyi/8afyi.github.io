@@ -10,3 +10,4 @@ layout: page
 * Never replies all, ever.
 * Silos are good, actually.
 * One space after periods but punctunation outside of quotation marks.
+* Listens to the [B*Witched cover of "Hey Mickey"](https://youtu.be/-loBJYxhxvw?si=Ma3LjNWvE_978w63).

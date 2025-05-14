@@ -3,6 +3,7 @@ title: Things that make me a sick freak
 layout: page
 ---
 
+Many have said these constitute antisocial behavior:
 
 * Drinks Keurig coffee.
 * Listens to [The Smiths](https://youtu.be/w3qPMe_cCJk?si=zmAGcOLlSmClAmOZ).
@@ -11,3 +12,4 @@ layout: page
 * Silos are good, actually.
 * One space after periods but punctunation outside of quotation marks.
 * Listens to the [B*Witched cover of "Hey Mickey"](https://youtu.be/-loBJYxhxvw?si=Ma3LjNWvE_978w63).
+* Does not "take your ticket with you" at the parking lot.

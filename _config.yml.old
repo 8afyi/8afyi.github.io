@@ -1,0 +1,19 @@
+title: 8a-fyi
+#author:
+#  name: Mister Eight
+#  email: information@8a.fyi
+
+#description: This is a super important website.
+
+theme: minima
+
+header_pages:
+  - tunes.md
+  - avoid-getting-caught.md
+  - freak.md
+
+minima:
+  social_links:
+    - title: 8a on bluesky
+      icon: bluesky
+      url: "https://bsky.app/profile/8a.fyi"

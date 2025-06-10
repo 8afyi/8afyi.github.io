@@ -1,6 +1,6 @@
 ---
 layout: page
-title: JINA
+title: ג׳ינה
 ---
 
 <figure>

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: ג׳ינה
+title: ג׳ינה جينا
 ---
 
 <figure>

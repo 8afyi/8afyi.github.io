@@ -32,6 +32,10 @@ remote_theme: jekyll/minima@d4d779a
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+
+# Site navigation pages.
+header_pages:
+  - tunes.md
 #
 # Uncomment the following setting if you wish to disable deprecation warnings
 #   from newer versions of sass converter. Adapt as required.
@@ -56,20 +60,6 @@ minima:
 #     * solarized          Adaptive skin for solarized color scheme skins.
   skin: auto
 #
-#   Specific pages for site navigation.
-#     If you wish to link only specific pages in the site-navigation, use this
-#     and list the `path` property (as represented via Liquid) of the pages in
-#     the order they should be rendered.
-#  nav_pages:
-#    - tunes.md
-#    - avoid-getting-caught.md
-#    - freak.md
-
-  header_pages:
-    - tunes.md
-    - avoid-getting-caught.md
-    - freak.md
-
 #
 #   Set to `true` to show excerpts on the homepage.
 #   show_excerpts: false

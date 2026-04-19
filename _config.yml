@@ -13,7 +13,7 @@ plugins:
 header_pages:
   - tunes.md
   - emergency-emojis.md
-  - quickreaction.html
+  - quickreaction.md
 
 minima:
   skin: auto

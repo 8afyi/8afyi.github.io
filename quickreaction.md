@@ -7,22 +7,8 @@ permalink: /quickreaction/
 {% assign reaction_files = site.static_files | where_exp: "file", "file.path contains '/reactions/'" | sort: "name" %}
 {% assign first_reaction = reaction_files | first %}
 
-<style>
-  #quickreaction img {
-    display: block;
-    max-width: 100%;
-    max-height: 70vh;
-    margin: 0 auto;
-  }
-
-  #quickreaction p {
-    margin: 0;
-    text-align: center;
-  }
-</style>
-
-<div id="quickreaction">
-  <img id="reaction-image" alt="Random reaction image" hidden>
+<div>
+  <img alt="Random reaction image" hidden>
   <p id="reaction-message"{% if reaction_files != empty %} hidden{% endif %}>No reaction images found.</p>
   {% if first_reaction %}
   <noscript>

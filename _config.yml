@@ -38,6 +38,7 @@ plugins:
 header_pages:
   - tunes.md
   - emergency-emojis.md
+  - quickreaction.html
 #
 # Uncomment the following setting if you wish to disable deprecation warnings
 #   from newer versions of sass converter. Adapt as required.

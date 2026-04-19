@@ -8,7 +8,7 @@ permalink: /quickreaction/
 {% assign first_reaction = reaction_files | first %}
 
 <div>
-  <img alt="Random reaction image" hidden>
+  <img id="reaction-image" alt="Random reaction image" hidden>
   <p id="reaction-message"{% if reaction_files != empty %} hidden{% endif %}>No reaction images found.</p>
   {% if first_reaction %}
   <noscript>
@@ -27,7 +27,7 @@ permalink: /quickreaction/
   const image = document.getElementById("reaction-image");
   const message = document.getElementById("reaction-message");
 
-  if (reactions.length > 0) {
+  if (image && message && reactions.length > 0) {
     image.src = reactions[Math.floor(Math.random() * reactions.length)];
     image.hidden = false;
     message.hidden = true;

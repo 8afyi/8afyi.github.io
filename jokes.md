@@ -9,11 +9,11 @@ description: That is not funny.
 
 {% if funnythings and funnythings.size > 0 %}
   <section>
+  <ol>
     {% for line in funnythings %}
-      <article>
-        <p>{{ line | escape }}</p>
-      </article>
+        <li>{{ line | escape }}</li>
     {% endfor %}
+    </ol>
   </section>
 {% else %}
   <p>Nah.</p>

@@ -1,16 +1,18 @@
-<table>
-  <thead>
-    <tr>
-      <th>Emoji</th>
-      <th>File Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for file in include.emoji_files %}
-    <tr>
-      <td><img src="{{ file.path | relative_url }}" alt="{{ file.name }}" style="max-width: 96px; max-height: 96px;" /></td>
-      <td><code>{{ file.name }}</code></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="overflow-auto">
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Emoji</th>
+        <th>File Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for file in include.emoji_files %}
+      <tr>
+        <td><img src="{{ file.path | relative_url }}" alt="{{ file.name }}" width="96" loading="lazy"></td>
+        <td><code>{{ file.name }}</code></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

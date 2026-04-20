@@ -1,10 +1,9 @@
 title: 8AFYI
 url: https://8a.fyi
+lang: en
 author:
   name: information
   email: information@8a.fyi
-
-remote_theme: jekyll/minima@d4d779a
 
 plugins:
  - jekyll-feed
@@ -15,12 +14,6 @@ header_pages:
   - emergency-emojis.md
   - quickreaction.md
 
-minima:
-  skin: auto
-  show_excerpts: false
-  date_format: "%b-%d-%Y"
-  social_links:
-    - title: 8a on bluesky
-      icon: bluesky
-      url: "https://bsky.app/profile/8a.fyi"
-  hide_site_feed_link: true
+social_links:
+  - title: Bluesky
+    url: "https://bsky.app/profile/8a.fyi"

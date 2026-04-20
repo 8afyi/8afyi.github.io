@@ -6,8 +6,6 @@ description: HOME PAGE
 
 {% assign static_pages = site.pages | where: "layout", "page" | sort: "title" %}
 
-<p>Static pages on this site:</p>
-
 <ul>
   {% for item in static_pages %}
   {% if item.url != page.url %}

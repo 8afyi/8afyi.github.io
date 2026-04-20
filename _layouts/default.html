@@ -38,6 +38,9 @@
 
     <footer class="container">
       <small>
+        {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}">{{ site.author.email | escape }}</a>{% if site.social_links and site.social_links.size > 0 %} | {% endif %}
+        {% endif %}
         {% for link in site.social_links %}
           <a href="{{ link.url }}">{{ link.title | escape }}</a>{% unless forloop.last %} | {% endunless %}
         {% endfor %}

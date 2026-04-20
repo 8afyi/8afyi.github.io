@@ -1,10 +1,11 @@
 ---
 layout: page
-title: ג׳ינה جينا
-description: Go here to hear "Jina!!!" 
+title: Tunes
+description: Big tunes only
 ---
 
-<figure>
-  <figcaption>Shusan - Jina!!!</figcaption>
-  <audio controls src="tunes/jina.mp3"></audio>
-</figure>
+{% assign tune_files = site.static_files | where_exp: "file", "file.path contains '/tunes/'" | sort: "name" %}
+
+<p><strong>{{ tune_files | size }}</strong> tunes.</p>
+
+{% include tunes-table.html tune_files=tune_files %}

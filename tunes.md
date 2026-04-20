@@ -1,6 +1,7 @@
 ---
 layout: page
 title: ג׳ינה جينا
+description: Go here to hear "Jina!!!" 
 ---
 
 <figure>

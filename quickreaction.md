@@ -2,6 +2,7 @@
 layout: page
 title: Quick Reaction
 permalink: /quickreaction/
+description: Need a quick reaction image?  Check out this page immediately.
 ---
 
 {% assign reaction_files = site.static_files | where_exp: "file", "file.path contains '/reactions/'" | sort: "name" %}

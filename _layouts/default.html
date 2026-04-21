@@ -10,7 +10,7 @@
     {% seo %}
   </head>
   <body>
-    <header class="container">
+    <header>
       <nav>
         <ul>
           <li>
@@ -33,11 +33,12 @@
       </nav>
     </header>
 
-    <main class="container">
+    <main>
       {{ content }}
     </main>
 
-    <footer class="container">
+    <footer>
+      <hr />
       <small>
         {% if site.author.email %}
           <a href="mailto:{{ site.author.email }}">{{ site.author.email | escape }}</a>{% if site.social_links and site.social_links.size > 0 %} | {% endif %}

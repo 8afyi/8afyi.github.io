@@ -10,7 +10,7 @@ plugins:
  - jekyll-seo-tag
 
 header_pages:
- - emergency-emojis.md
+  - emergency-emojis.md
   - quickreaction.md
   - jokes.md
 

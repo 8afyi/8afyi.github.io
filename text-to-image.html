@@ -21,6 +21,17 @@ description: Just so I can post something stupid on Instagram
     </label>
 
     <div class="grid">
+      <label for="text-image-font-family">
+        Font
+        <select id="text-image-font-family">
+          <option value="sans-serif" selected>Sans-serif</option>
+          <option value="serif">Serif</option>
+          <option value="monospace">Monospace</option>
+          <option value="cursive">Cursive</option>
+          <option value="fantasy">Fantasy</option>
+        </select>
+      </label>
+
       <label for="text-image-text-color">
         Text color
         <input id="text-image-text-color" type="color" value="#000000">
@@ -36,8 +47,8 @@ description: Just so I can post something stupid on Instagram
   </form>
 
   <figure>
-    <canvas id="text-image-canvas" width="1080" height="1080" aria-label="1080 by 1080 image preview"></canvas>
-    <figcaption>1080 x 1080 PNG</figcaption>
+    <canvas id="text-image-canvas" width="1080" height="1350" aria-label="1080 by 1350 image preview"></canvas>
+    <figcaption>1080 x 1350 PNG</figcaption>
   </figure>
 </section>
 
@@ -45,19 +56,20 @@ description: Just so I can post something stupid on Instagram
   (function () {
     const canvas = document.getElementById("text-image-canvas");
     const copyInput = document.getElementById("text-image-copy");
+    const fontFamilyInput = document.getElementById("text-image-font-family");
     const textColorInput = document.getElementById("text-image-text-color");
     const backgroundColorInput = document.getElementById("text-image-background-color");
     const downloadButton = document.getElementById("text-image-download");
     const ctx = canvas.getContext("2d");
 
-    const canvasSize = 1080;
+    const canvasWidth = 1080;
+    const canvasHeight = 1350;
     const edgePadding = 36;
-    const fontFamily = "Arial, Helvetica, sans-serif";
     const fontWeight = "700";
     const lineHeightRatio = 1.05;
 
     function setFont(fontSize) {
-      ctx.font = fontWeight + " " + fontSize + "px " + fontFamily;
+      ctx.font = fontWeight + " " + fontSize + "px " + fontFamilyInput.value;
     }
 
     function normalizeText(value) {
@@ -126,7 +138,7 @@ description: Just so I can post something stupid on Instagram
     }
 
     function wrapText(text, fontSize) {
-      const maxWidth = canvasSize - edgePadding * 2;
+      const maxWidth = canvasWidth - edgePadding * 2;
       const lines = [];
 
       setFont(fontSize);
@@ -139,8 +151,8 @@ description: Just so I can post something stupid on Instagram
     }
 
     function textFits(lines, fontSize) {
-      const maxWidth = canvasSize - edgePadding * 2;
-      const maxHeight = canvasSize - edgePadding * 2;
+      const maxWidth = canvasWidth - edgePadding * 2;
+      const maxHeight = canvasHeight - edgePadding * 2;
       const lineHeight = fontSize * lineHeightRatio;
       const textHeight = lines.length * lineHeight;
 
@@ -155,7 +167,7 @@ description: Just so I can post something stupid on Instagram
 
     function createLayout(text) {
       let low = 8;
-      let high = 1200;
+      let high = canvasHeight;
       let bestFontSize = low;
       let bestLines = wrapText(text, low);
 
@@ -181,9 +193,9 @@ description: Just so I can post something stupid on Instagram
     function drawCanvas() {
       const text = normalizeText(copyInput.value);
 
-      ctx.clearRect(0, 0, canvasSize, canvasSize);
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
       ctx.fillStyle = backgroundColorInput.value;
-      ctx.fillRect(0, 0, canvasSize, canvasSize);
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
       if (!text) {
         return;
@@ -192,7 +204,7 @@ description: Just so I can post something stupid on Instagram
       const layout = createLayout(text);
       const lineHeight = layout.fontSize * lineHeightRatio;
       const textHeight = layout.lines.length * lineHeight;
-      let y = canvasSize / 2 - textHeight / 2 + lineHeight / 2;
+      let y = canvasHeight / 2 - textHeight / 2 + lineHeight / 2;
 
       setFont(layout.fontSize);
       ctx.fillStyle = textColorInput.value;
@@ -200,7 +212,7 @@ description: Just so I can post something stupid on Instagram
       ctx.textBaseline = "middle";
 
       layout.lines.forEach(function (line) {
-        ctx.fillText(line, canvasSize / 2, y);
+        ctx.fillText(line, canvasWidth / 2, y);
         y += lineHeight;
       });
     }
@@ -218,6 +230,7 @@ description: Just so I can post something stupid on Instagram
       input.addEventListener("input", drawCanvas);
     });
 
+    fontFamilyInput.addEventListener("change", drawCanvas);
     downloadButton.addEventListener("click", downloadCanvas);
     drawCanvas();
   }());

@@ -17,7 +17,7 @@ description: Just so I can post something stupid on Instagram
   <form id="text-image-form">
     <label for="text-image-copy">
       Text
-      <textarea id="text-image-copy" autocomplete="off" spellcheck="true">Text to image</textarea>
+      <textarea id="text-image-copy" autocomplete="off" spellcheck="true">Cool</textarea>
     </label>
 
     <div class="grid">
@@ -27,29 +27,27 @@ description: Just so I can post something stupid on Instagram
           <option value="sans-serif" selected>Sans-serif</option>
           <option value="serif">Serif</option>
           <option value="monospace">Monospace</option>
-          <option value="cursive">Cursive</option>
-          <option value="fantasy">Fantasy</option>
         </select>
       </label>
 
       <label for="text-image-text-color">
         Text color
-        <input id="text-image-text-color" type="color" value="#000000">
+        <input id="text-image-text-color" type="color" value="#333333">
       </label>
 
       <label for="text-image-background-color">
         Background color
-        <input id="text-image-background-color" type="color" value="#ffffff">
+        <input id="text-image-background-color" type="color" value="#eeeeee">
       </label>
 
-      <button id="text-image-download" type="button">Open PNG</button>
-      <button id="text-image-share" type="button" class="secondary">Share PNG</button>
+      <button id="text-image-download" type="button">Open</button>
+      <button id="text-image-share" type="button" class="secondary">Share</button>
     </div>
   </form>
 
   <figure>
     <canvas id="text-image-canvas" width="1080" height="1350" aria-label="1080 by 1350 image preview"></canvas>
-    <figcaption>1080 x 1350 PNG</figcaption>
+    <figcaption>Share if you agree</figcaption>
   </figure>
 </section>
 
@@ -68,7 +66,7 @@ description: Just so I can post something stupid on Instagram
     const canvasHeight = 1350;
     const edgePadding = 36;
     const fontWeight = "700";
-    const lineHeightRatio = 1.05;
+    const lineHeightRatio = 1.25;
 
     function setFont(fontSize) {
       ctx.font = fontWeight + " " + fontSize + "px " + fontFamilyInput.value;

@@ -42,7 +42,8 @@ description: Just so I can post something stupid on Instagram
         <input id="text-image-background-color" type="color" value="#ffffff">
       </label>
 
-      <button id="text-image-download" type="button">Download PNG</button>
+      <button id="text-image-download" type="button">Open PNG</button>
+      <button id="text-image-share" type="button" class="secondary">Share PNG</button>
     </div>
   </form>
 
@@ -60,6 +61,7 @@ description: Just so I can post something stupid on Instagram
     const textColorInput = document.getElementById("text-image-text-color");
     const backgroundColorInput = document.getElementById("text-image-background-color");
     const downloadButton = document.getElementById("text-image-download");
+    const shareButton = document.getElementById("text-image-share");
     const ctx = canvas.getContext("2d");
 
     const canvasWidth = 1080;
@@ -217,13 +219,65 @@ description: Just so I can post something stupid on Instagram
       });
     }
 
-    function downloadCanvas() {
+    function openCanvasImage() {
       drawCanvas();
 
-      const downloadLink = document.createElement("a");
-      downloadLink.href = canvas.toDataURL("image/png");
-      downloadLink.download = "text-image.png";
-      downloadLink.click();
+      const imageWindow = window.open("", "_blank");
+
+      if (!canvas.toBlob) {
+        const imageUrl = canvas.toDataURL("image/png");
+
+        if (imageWindow) {
+          imageWindow.location.href = imageUrl;
+        } else {
+          window.location.href = imageUrl;
+        }
+
+        return;
+      }
+
+      canvas.toBlob(function (blob) {
+        const imageUrl = blob ? URL.createObjectURL(blob) : canvas.toDataURL("image/png");
+
+        if (imageWindow) {
+          imageWindow.location.href = imageUrl;
+        } else {
+          window.location.href = imageUrl;
+        }
+      }, "image/png");
+    }
+
+    function shareCanvasImage() {
+      drawCanvas();
+
+      if (!navigator.share || !window.File || !canvas.toBlob) {
+        openCanvasImage();
+        return;
+      }
+
+      canvas.toBlob(function (blob) {
+        if (!blob) {
+          openCanvasImage();
+          return;
+        }
+
+        const imageFile = new File([blob], "text-image.png", { type: "image/png" });
+        const shareData = {
+          files: [imageFile],
+          title: "Text image"
+        };
+
+        if (navigator.canShare && !navigator.canShare(shareData)) {
+          openCanvasImage();
+          return;
+        }
+
+        navigator.share(shareData).catch(function (error) {
+          if (error.name !== "AbortError") {
+            openCanvasImage();
+          }
+        });
+      }, "image/png");
     }
 
     [copyInput, textColorInput, backgroundColorInput].forEach(function (input) {
@@ -231,7 +285,8 @@ description: Just so I can post something stupid on Instagram
     });
 
     fontFamilyInput.addEventListener("change", drawCanvas);
-    downloadButton.addEventListener("click", downloadCanvas);
+    downloadButton.addEventListener("click", openCanvasImage);
+    shareButton.addEventListener("click", shareCanvasImage);
     drawCanvas();
   }());
 </script>

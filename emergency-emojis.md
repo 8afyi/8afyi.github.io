@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Emergency Emojis
+permalink: /emojis/
 description: Lists every emergency emoji in the world.  Upload them to your slack.
 ---
 

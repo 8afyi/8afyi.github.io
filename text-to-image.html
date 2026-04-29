@@ -76,28 +76,6 @@ description: Just so I can post something stupid on Instagram
       return value.replace(/\r\n?/g, "\n").trim();
     }
 
-    function splitLongWord(word, maxWidth) {
-      const pieces = [];
-      let piece = "";
-
-      Array.from(word).forEach(function (character) {
-        const nextPiece = piece + character;
-
-        if (piece && ctx.measureText(nextPiece).width > maxWidth) {
-          pieces.push(piece);
-          piece = character;
-        } else {
-          piece = nextPiece;
-        }
-      });
-
-      if (piece) {
-        pieces.push(piece);
-      }
-
-      return pieces;
-    }
-
     function wrapParagraph(paragraph, maxWidth) {
       if (!paragraph) {
         return [""];
@@ -110,24 +88,13 @@ description: Just so I can post something stupid on Instagram
       words.forEach(function (word) {
         const candidate = line ? line + " " + word : word;
 
-        if (ctx.measureText(candidate).width <= maxWidth) {
+        if (!line || ctx.measureText(candidate).width <= maxWidth) {
           line = candidate;
           return;
         }
 
-        if (line) {
-          lines.push(line);
-          line = "";
-        }
-
-        if (ctx.measureText(word).width <= maxWidth) {
-          line = word;
-          return;
-        }
-
-        const wordPieces = splitLongWord(word, maxWidth);
-        lines.push.apply(lines, wordPieces.slice(0, -1));
-        line = wordPieces[wordPieces.length - 1] || "";
+        lines.push(line);
+        line = word;
       });
 
       if (line || lines.length === 0) {
@@ -166,7 +133,7 @@ description: Just so I can post something stupid on Instagram
     }
 
     function createLayout(text) {
-      let low = 8;
+      let low = 1;
       let high = canvasHeight;
       let bestFontSize = low;
       let bestLines = wrapText(text, low);

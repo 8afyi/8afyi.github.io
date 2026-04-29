@@ -16,11 +16,28 @@ description: Just so I can post something stupid on Instagram
 <section aria-label="Text to image generator">
   <form id="text-image-form">
 
-    <label for="text-image-copy">
-      Text
-      <textarea id="text-image-copy" autocomplete="off" spellcheck="true">Cool</textarea>
-    </label>
+
+    <div class="grid">
+  
+      <div>
+        <label for="text-image-copy">
+          Text
+          <textarea id="text-image-copy" autocomplete="off" spellcheck="true">Cool</textarea>
+        </label>
+      </div>
+
+<div>
+  
+  <figure>
+    <canvas id="text-image-canvas" width="1080" height="1350" aria-label="1080 by 1350 image preview"></canvas>
+    <figcaption>Share if you agree</figcaption>
+  </figure>
+</div>
+
+    </div>
+
     
+
 
     <div class="grid">
       <label for="text-image-font-family">
@@ -47,10 +64,6 @@ description: Just so I can post something stupid on Instagram
     </div>
   </form>
 
-  <figure>
-    <canvas id="text-image-canvas" width="1080" height="1350" aria-label="1080 by 1350 image preview"></canvas>
-    <figcaption>Share if you agree</figcaption>
-  </figure>
 </section>
 
 <script>

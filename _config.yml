@@ -12,6 +12,7 @@ plugins:
 header_pages:
   - emergency-emojis.md
   - quickreaction.md
+  - text-to-image.html
   - jokes.md
 
 social_links:

@@ -1,0 +1,224 @@
+---
+layout: page
+title: Text to Image
+permalink: /text-to-image/
+description: Just so I can post something stupid on Instagram
+---
+
+<style>
+  #text-image-canvas {
+    width: min(100%, 36rem);
+    height: auto;
+    border: 1px solid var(--muted-border-color);
+  }
+</style>
+
+<section aria-label="Text to image generator">
+  <form id="text-image-form">
+    <label for="text-image-copy">
+      Text
+      <textarea id="text-image-copy" autocomplete="off" spellcheck="true">Text to image</textarea>
+    </label>
+
+    <div class="grid">
+      <label for="text-image-text-color">
+        Text color
+        <input id="text-image-text-color" type="color" value="#000000">
+      </label>
+
+      <label for="text-image-background-color">
+        Background color
+        <input id="text-image-background-color" type="color" value="#ffffff">
+      </label>
+
+      <button id="text-image-download" type="button">Download PNG</button>
+    </div>
+  </form>
+
+  <figure>
+    <canvas id="text-image-canvas" width="1080" height="1080" aria-label="1080 by 1080 image preview"></canvas>
+    <figcaption>1080 x 1080 PNG</figcaption>
+  </figure>
+</section>
+
+<script>
+  (function () {
+    const canvas = document.getElementById("text-image-canvas");
+    const copyInput = document.getElementById("text-image-copy");
+    const textColorInput = document.getElementById("text-image-text-color");
+    const backgroundColorInput = document.getElementById("text-image-background-color");
+    const downloadButton = document.getElementById("text-image-download");
+    const ctx = canvas.getContext("2d");
+
+    const canvasSize = 1080;
+    const edgePadding = 36;
+    const fontFamily = "Arial, Helvetica, sans-serif";
+    const fontWeight = "700";
+    const lineHeightRatio = 1.05;
+
+    function setFont(fontSize) {
+      ctx.font = fontWeight + " " + fontSize + "px " + fontFamily;
+    }
+
+    function normalizeText(value) {
+      return value.replace(/\r\n?/g, "\n").trim();
+    }
+
+    function splitLongWord(word, maxWidth) {
+      const pieces = [];
+      let piece = "";
+
+      Array.from(word).forEach(function (character) {
+        const nextPiece = piece + character;
+
+        if (piece && ctx.measureText(nextPiece).width > maxWidth) {
+          pieces.push(piece);
+          piece = character;
+        } else {
+          piece = nextPiece;
+        }
+      });
+
+      if (piece) {
+        pieces.push(piece);
+      }
+
+      return pieces;
+    }
+
+    function wrapParagraph(paragraph, maxWidth) {
+      if (!paragraph) {
+        return [""];
+      }
+
+      const words = paragraph.trim().split(/\s+/);
+      const lines = [];
+      let line = "";
+
+      words.forEach(function (word) {
+        const candidate = line ? line + " " + word : word;
+
+        if (ctx.measureText(candidate).width <= maxWidth) {
+          line = candidate;
+          return;
+        }
+
+        if (line) {
+          lines.push(line);
+          line = "";
+        }
+
+        if (ctx.measureText(word).width <= maxWidth) {
+          line = word;
+          return;
+        }
+
+        const wordPieces = splitLongWord(word, maxWidth);
+        lines.push.apply(lines, wordPieces.slice(0, -1));
+        line = wordPieces[wordPieces.length - 1] || "";
+      });
+
+      if (line || lines.length === 0) {
+        lines.push(line);
+      }
+
+      return lines;
+    }
+
+    function wrapText(text, fontSize) {
+      const maxWidth = canvasSize - edgePadding * 2;
+      const lines = [];
+
+      setFont(fontSize);
+
+      text.split("\n").forEach(function (paragraph) {
+        lines.push.apply(lines, wrapParagraph(paragraph, maxWidth));
+      });
+
+      return lines;
+    }
+
+    function textFits(lines, fontSize) {
+      const maxWidth = canvasSize - edgePadding * 2;
+      const maxHeight = canvasSize - edgePadding * 2;
+      const lineHeight = fontSize * lineHeightRatio;
+      const textHeight = lines.length * lineHeight;
+
+      if (textHeight > maxHeight) {
+        return false;
+      }
+
+      return lines.every(function (line) {
+        return ctx.measureText(line).width <= maxWidth;
+      });
+    }
+
+    function createLayout(text) {
+      let low = 8;
+      let high = 1200;
+      let bestFontSize = low;
+      let bestLines = wrapText(text, low);
+
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const lines = wrapText(text, mid);
+
+        if (textFits(lines, mid)) {
+          bestFontSize = mid;
+          bestLines = lines;
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+
+      return {
+        fontSize: bestFontSize,
+        lines: bestLines
+      };
+    }
+
+    function drawCanvas() {
+      const text = normalizeText(copyInput.value);
+
+      ctx.clearRect(0, 0, canvasSize, canvasSize);
+      ctx.fillStyle = backgroundColorInput.value;
+      ctx.fillRect(0, 0, canvasSize, canvasSize);
+
+      if (!text) {
+        return;
+      }
+
+      const layout = createLayout(text);
+      const lineHeight = layout.fontSize * lineHeightRatio;
+      const textHeight = layout.lines.length * lineHeight;
+      let y = canvasSize / 2 - textHeight / 2 + lineHeight / 2;
+
+      setFont(layout.fontSize);
+      ctx.fillStyle = textColorInput.value;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      layout.lines.forEach(function (line) {
+        ctx.fillText(line, canvasSize / 2, y);
+        y += lineHeight;
+      });
+    }
+
+    function downloadCanvas() {
+      drawCanvas();
+
+      const downloadLink = document.createElement("a");
+      downloadLink.href = canvas.toDataURL("image/png");
+      downloadLink.download = "text-image.png";
+      downloadLink.click();
+    }
+
+    [copyInput, textColorInput, backgroundColorInput].forEach(function (input) {
+      input.addEventListener("input", drawCanvas);
+    });
+
+    downloadButton.addEventListener("click", downloadCanvas);
+    drawCanvas();
+  }());
+</script>

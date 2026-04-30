@@ -13,9 +13,8 @@ description: Just so I can post something stupid on Instagram
   }
 </style>
 
-<section aria-label="Text to image generator">
+<section aria-label="Text to image">
   <form id="text-image-form">
-
 
     <div class="grid">
   
@@ -26,13 +25,13 @@ description: Just so I can post something stupid on Instagram
         </label>
       </div>
 
-<div>
-  
-  <figure>
-    <canvas id="text-image-canvas" width="1080" height="1350" aria-label="1080 by 1350 image preview"></canvas>
-    <figcaption>Share if you agree</figcaption>
-  </figure>
-</div>
+      <div>
+        
+        <figure>
+          <canvas id="text-image-canvas" width="1080" height="1350" aria-label="preview"></canvas>
+          <figcaption>Share if you agree</figcaption>
+        </figure>
+      </div>
 
     </div>
 
@@ -49,18 +48,21 @@ description: Just so I can post something stupid on Instagram
         </select>
       </label>
 
+      <fieldset role="group">
       <label for="text-image-text-color">
-        Text color
-        <input id="text-image-text-color" type="color" value="#333333">
+        Text color        <input id="text-image-text-color" type="color" value="#333333">
       </label>
 
       <label for="text-image-background-color">
-        Background color
-        <input id="text-image-background-color" type="color" value="#eeeeee">
+        Background color        <input id="text-image-background-color" type="color" value="#eeeeee">
       </label>
+      </fieldset>
 
-      <button id="text-image-download" type="button">Open</button>
-      <button id="text-image-share" type="button" class="secondary">Share</button>
+      <fieldset role="group">
+        <button id="text-image-download" type="button">Open</button>
+        <button id="text-image-share" type="button" class="secondary">Yeet</button>
+      </fieldset>
+
     </div>
   </form>
 

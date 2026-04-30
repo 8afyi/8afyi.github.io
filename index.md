@@ -12,7 +12,7 @@ description: For Your Information
     {% if item.url != page.url and item.title %}
         <div>    
         <h2>
-          <a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+          <a href="{{ item.url | relative_url }}" class="contrast">{{ item.title | escape }}</a>
         </h2>
         {% assign item_summary = item.description | default: item.excerpt %}
         {% if item_summary %}

@@ -1,0 +1,22 @@
+    <header class="container-fluid">
+      <nav>
+        <ul>
+          <li>
+            <strong>
+              <img src="{{ '/favicon.png' | relative_url }}" />
+<a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+            </strong>
+          </li>
+        </ul>
+        <ul>
+          {% for path in site.header_pages %}
+            {% assign nav_page = site.pages | where: "path", path | first %}
+            {% if nav_page %}
+              <li>
+                <a href="{{ nav_page.url | relative_url }}"{% if nav_page.url == page.url %} aria-current="page"{% endif %}>{{ nav_page.title | escape }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </header>

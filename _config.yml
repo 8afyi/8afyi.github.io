@@ -6,6 +6,7 @@ author:
   email: information@8a.fyi
 
 header_pages:
+  - templates.md
   - emergency-emojis.md
   - quickreaction.md
   - text-to-image.html

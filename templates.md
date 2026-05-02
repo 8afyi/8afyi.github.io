@@ -2,7 +2,7 @@
 layout: page
 title: Templates
 permalink: /templates/
-description: Download document templates.
+description: Docs that help organize yr life
 ---
 
 {% assign template_files = site.static_files | where_exp: "file", "file.path contains '/templates/'" | sort: "name" %}
@@ -20,7 +20,6 @@ description: Download document templates.
   {% endif %}
 {% endfor %}
 
-**{{ template_count }}** document templates.
 
 {% if template_count > 0 %}
 {% for file in template_files %}

@@ -5,29 +5,36 @@ permalink: /templates/
 description: Download document templates.
 ---
 
-{% assign template_files = site.static_files | where_exp: "file", "file.path contains '/templates/' and site.data.template_formats contains file.extname" | sort: "name" %}
+{% assign template_files = site.static_files | where_exp: "file", "file.path contains '/templates/'" | sort: "name" %}
+{% assign template_count = 0 %}
+{% for file in template_files %}
+  {% assign file_extname = file.extname | downcase %}
+  {% assign show_file = false %}
+  {% for format in site.data.template_formats %}
+    {% if file_extname == format %}
+      {% assign show_file = true %}
+    {% endif %}
+  {% endfor %}
+  {% if show_file %}
+    {% assign template_count = template_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
 
-<p><strong>{{ template_files | size }}</strong> document templates.</p>
+**{{ template_count }}** document templates.
 
-{% if template_files.size > 0 %}
-<div class="overflow-auto">
-  <table class="striped">
-    <thead>
-      <tr>
-        <th>Template</th>
-        <th>Format</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for file in template_files %}
-      <tr>
-        <td><a href="{{ file.path | relative_url }}">{{ file.name }}</a></td>
-        <td><code>{{ file.extname | remove_first: "." | upcase }}</code></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+{% if template_count > 0 %}
+{% for file in template_files %}
+{% assign file_extname = file.extname | downcase %}
+{% assign show_file = false %}
+{% for format in site.data.template_formats %}
+{% if file_extname == format %}
+{% assign show_file = true %}
+{% endif %}
+{% endfor %}
+{% if show_file %}
+- [{{ file.name }}]({{ file.path | relative_url }}) `{{ file_extname | remove_first: "." | upcase }}`
+{% endif %}
+{% endfor %}
 {% else %}
-<p>Add Office or LibreOffice documents to the <code>templates/</code> directory and they will appear here.</p>
+Add Office or LibreOffice documents to the `templates/` directory and they will appear here.
 {% endif %}

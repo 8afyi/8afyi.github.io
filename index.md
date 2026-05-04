@@ -35,7 +35,7 @@ description: For Your Information
 
         video.src = videoUrl;
         video.poster = whoa.poster || "";
-        meta.textContent = [whoa.movie, whoa.year, whoa.timestamp].filter(Boolean).join(" - ");
+        meta.textContent = [whoa.movie, whoa.year].filter(Boolean).join(" - ");
       })
       .catch(() => {
         meta.textContent = "The video is unavailable right now.";

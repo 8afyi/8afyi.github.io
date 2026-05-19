@@ -23,10 +23,3 @@ description: For Your Information
     {% endfor %}
   </div>
 </section>
-
-
-<section aria-labelledby="whoa-video-title">
- <center>  <video id="whoa-video" controls playsinline preload="metadata" style="width: 100%; max-width: 640px;"></video>
-  <p id="whoa-video-meta" aria-live="polite">Loading...</p>
-  </center>
-</section>

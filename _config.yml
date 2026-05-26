@@ -11,6 +11,8 @@ header_pages:
   - quickreaction.md
   - text-to-image.html
   - jokes.md
+  - copypaste.md
+  - calendar.md
 
 social_links:
   - title: Bluesky

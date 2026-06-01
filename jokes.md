@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hmm. Funny.
+title: Hmm, funny
 permalink: /jokes/
 description: That is not funny.
 ---

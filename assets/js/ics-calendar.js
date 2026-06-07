@@ -77,20 +77,23 @@
     var thead = document.createElement('thead');
     var hrow = document.createElement('tr');
     var th1 = document.createElement('th'); th1.innerText = 'Date';
+    var thDay = document.createElement('th'); thDay.innerText = 'Day';
     var th2 = document.createElement('th'); th2.innerText = 'Event name';
-    hrow.appendChild(th1); hrow.appendChild(th2); thead.appendChild(hrow); table.appendChild(thead);
+    hrow.appendChild(th1); hrow.appendChild(thDay); hrow.appendChild(th2); thead.appendChild(hrow); table.appendChild(thead);
     var tbody = document.createElement('tbody');
+    var _weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     events.forEach(function(e){
       var tr = document.createElement('tr');
       var td1 = document.createElement('td');
-      // Format date as YYYY-MM-DD or nicer
+      // Format date as YYYY-MM-DD
       var d = e.date;
       var y = d.getFullYear();
       var m = ('0'+(d.getMonth()+1)).slice(-2);
       var day = ('0'+d.getDate()).slice(-2);
       td1.innerText = y + '-' + m + '-' + day;
+      var tdDay = document.createElement('td'); tdDay.innerText = _weekdays[d.getDay()];
       var td2 = document.createElement('td'); td2.innerText = e.summary;
-      tr.appendChild(td1); tr.appendChild(td2); tbody.appendChild(tr);
+      tr.appendChild(td1); tr.appendChild(tdDay); tr.appendChild(td2); tbody.appendChild(tr);
     });
     table.appendChild(tbody);
     // Clear and append

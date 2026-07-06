@@ -3,6 +3,7 @@ layout: page
 title: Moving from WhatsApp to iMessage
 permalink: /timb-please/
 description: Tryin' to make a change :\
+published: false
 ---
 
 I've been using WhatsApp for almost fifteen years. It's the last Meta product I still use. I'm trying to move as much as I can off of there, so this week, we're transitioning the immediate family to iMessage.  Here are my complaints so far:

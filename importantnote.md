@@ -26,7 +26,7 @@ description: You really should read this
     }
 
     const comment = comments[Math.floor(Math.random() * comments.length)];
-    const article = document.createElement('article');
+    const article = document.createElement('blockquote');
 
     const body = document.createElement('p');
     body.innerHTML = (comment.text || comment.comment_text || '').replace(/\n/g, '<br>');

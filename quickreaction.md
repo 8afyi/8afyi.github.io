@@ -8,7 +8,6 @@ description: Need a quick reaction image?  Check out this page immediately.
 {% assign reaction_files = site.static_files | where_exp: "file", "file.path contains '/reactions/'" | sort: "name" %}
 {% assign first_reaction = reaction_files | first %}
 
-<article>
   <img id="reaction-image" alt="Random reaction image" hidden>
   <p id="reaction-message"{% if reaction_files != empty %} hidden{% endif %}>No reaction images found.</p>
   {% if first_reaction %}
@@ -16,7 +15,6 @@ description: Need a quick reaction image?  Check out this page immediately.
     <img src="{{ first_reaction.path | relative_url }}" alt="Reaction image">
   </noscript>
   {% endif %}
-</article>
 
 <script>
   const reactions = [

@@ -14,7 +14,7 @@ body:
     id: tip
     attributes:
       label: Pro tip
-      description: TIP
+      description: Enter the tip here.  Maybe you already wrote it in the title, that's on you, just copy and paste it here.
       placeholder: e.g. "Piss discs"
     validations:
       required: true
@@ -22,21 +22,18 @@ body:
     id: category
     attributes:
       label: Category
-      description: CAT
       options:
         - General
         - Unwanted contact
         - Home improvement
         - Car stuff
         - To avoid getting caught
-        - Other
     validations:
       required: true
   - type: dropdown
     id: difficulty
     attributes:
-      label: Difficulty level
-      description: DIFFICULT DIFFICULT LEMON DIFFICULT
+      label: Difficulty
       options:
         - Easy
         - Medium
@@ -44,10 +41,3 @@ body:
         - Extreme
     validations:
       required: true
-  - type: input
-    id: other-category
-    attributes:
-      label: New category name
-      placeholder: e.g. "Workplace"
-    validations:
-      required: false

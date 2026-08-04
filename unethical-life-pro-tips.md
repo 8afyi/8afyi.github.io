@@ -14,4 +14,6 @@ description: Tips your HR department definitely didn't approve.
   <p>No tips yet. Check back later.</p>
 {% endif %}
 
+<p><a href="https://github.com/8afyi/8afyi.github.io/issues/new?template=new-tip.yml" role="button">Submit a tip</a></p>
+
 <script src="{{ '/assets/js/sortable-table.js' | relative_url }}"></script>

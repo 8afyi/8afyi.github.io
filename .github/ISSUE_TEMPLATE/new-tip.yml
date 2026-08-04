@@ -1,0 +1,53 @@
+name: Submit an Unethical Life Pro Tip
+description: Suggest a new entry for the Unethical Life Pro Tips page.
+title: "[Tip] "
+labels:
+  - new-tip
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything on this page is satire written for a comedy project. Don't include real names, addresses, or other identifying details about real people.
+
+        All submissions are reviewed manually.
+  - type: textarea
+    id: tip
+    attributes:
+      label: Pro tip
+      description: TIP
+      placeholder: e.g. "Piss discs"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: CAT
+      options:
+        - General
+        - Unwanted contact
+        - Home improvement
+        - Car stuff
+        - To avoid getting caught
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty level
+      description: DIFFICULT DIFFICULT LEMON DIFFICULT
+      options:
+        - Easy
+        - Medium
+        - Hard
+        - Extreme
+    validations:
+      required: true
+  - type: input
+    id: other-category
+    attributes:
+      label: New category name
+      placeholder: e.g. "Workplace"
+    validations:
+      required: false

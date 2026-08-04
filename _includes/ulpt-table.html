@@ -1,0 +1,20 @@
+<div class="overflow-auto">
+  <table class="striped" id="ulpt-table" data-sortable>
+    <thead>
+      <tr>
+        <th data-sort="tip" style="cursor:pointer;">Pro tip<span class="sort-indicator"></span></th>
+        <th data-sort="category" style="cursor:pointer;">Category<span class="sort-indicator"></span></th>
+        <th data-sort="difficulty" style="cursor:pointer;">Difficulty level<span class="sort-indicator"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in include.tips %}
+      <tr>
+        <td>{{ item.tip | escape }}</td>
+        <td>{{ item.category | escape }}</td>
+        <td>{{ item.difficulty | escape }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

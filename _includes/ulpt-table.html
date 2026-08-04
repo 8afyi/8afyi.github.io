@@ -1,22 +1,24 @@
+{% assign grouped_tips = include.tips | group_by: "category" %}
+{% for group in grouped_tips %}
+<h2>{{ group.name }}</h2>
 <div class="overflow-auto">
-  <table class="striped" id="ulpt-table" data-sortable>
+  <table class="striped" data-sortable>
     <thead>
       <tr>
         <th data-sort="id" style="cursor:pointer;">ID<span class="sort-indicator"></span></th>
         <th data-sort="tip" style="cursor:pointer;">Pro tip<span class="sort-indicator"></span></th>
-        <th data-sort="category" style="cursor:pointer;">Category<span class="sort-indicator"></span></th>
         <th data-sort="difficulty" style="cursor:pointer;">Difficulty level<span class="sort-indicator"></span></th>
       </tr>
     </thead>
     <tbody>
-      {% for item in include.tips %}
+      {% for item in group.items %}
       <tr>
         <td>{{ item.id | escape }}</td>
         <td>{{ item.tip | escape }}</td>
-        <td>{{ item.category | escape }}</td>
         <td>{{ item.difficulty | escape }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+{% endfor %}

@@ -2,7 +2,7 @@
 layout: page
 title: Unethical Life Pro Tips
 permalink: /ulpt/
-description: Tips your HR department definitely didn't approve.
+description: Carefully curated from some terrible website
 ---
 
 {% assign tips = site.data.unethical_life_pro_tips %}

@@ -1,0 +1,23 @@
+---
+layout: page
+title: Font or Microbrand
+permalink: /font-or-microbrand/
+description: Watches are stupid
+round_size: 20
+---
+
+{% assign fonts = site.data.fonts %}
+{% assign microbrands = site.data.microbrands %}
+
+{% if fonts.size > 0 and microbrands.size > 0 %}
+  {% include font-or-microbrand-game.html
+     fonts=fonts
+     microbrands=microbrands
+     round_size=page.round_size %}
+
+  <p><small>{{ fonts.size }} typefaces and {{ microbrands.size }} watch microbrands in the pile.</small></p>
+
+  <script src="{{ '/assets/js/font-or-microbrand.js' | relative_url }}"></script>
+{% else %}
+  <p>Nah.</p>
+{% endif %}

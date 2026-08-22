@@ -1,0 +1,41 @@
+{% comment %}
+  Font or Microbrand game.
+
+  Parameters:
+    include.fonts       - list of typeface names      (site.data.fonts)
+    include.microbrands - list of watch brand names   (site.data.microbrands)
+    include.round_size  - questions per round          (defaults to 20)
+{% endcomment %}
+
+<section id="fom" aria-label="Font or microbrand quiz">
+
+  <div class="grid">
+    <small id="fom-position"></small>
+    <small id="fom-score" aria-live="polite"></small>
+  </div>
+
+  <progress id="fom-streak" value="0" max="5"></progress>
+
+  <article>
+    <h2 id="fom-prompt" aria-live="polite"></h2>
+  </article>
+
+  <div class="grid" id="fom-guess">
+    <button type="button" data-answer="font">font (F)</button>
+    <button type="button" data-answer="microbrand">watch (M)</button>
+  </div>
+
+  <div id="fom-result" hidden>
+    <p id="fom-verdict" aria-live="polite"></p>
+    <button type="button" id="fom-next">next (space)</button>
+  </div>
+
+</section>
+
+<script type="application/json" id="fom-data">
+  {
+    "roundSize": {{ include.round_size | default: 20 }},
+    "fonts": {{ include.fonts | jsonify }},
+    "microbrands": {{ include.microbrands | jsonify }}
+  }
+</script>

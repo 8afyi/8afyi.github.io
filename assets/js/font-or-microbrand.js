@@ -23,7 +23,7 @@
 
   var positionEl = document.getElementById('fom-position');
   var scoreEl = document.getElementById('fom-score');
-  var streakEl = document.getElementById('fom-streak');
+  var progressEl = document.getElementById('fom-progress');
   var promptEl = document.getElementById('fom-prompt');
   var guessEl = document.getElementById('fom-guess');
   var resultEl = document.getElementById('fom-result');
@@ -38,8 +38,6 @@
   var bestStreak = 0;
   var round = 0;
   var roundOver = false;
-
-  var STREAK_TARGET = 5;
 
   function shuffled(items) {
     var copy = items.slice();
@@ -56,8 +54,9 @@
     return answer === 'font' ? 'font' : 'microbrand';
   }
 
-  function renderStreak() {
-    streakEl.value = Math.min(streak, STREAK_TARGET);
+  function renderProgress() {
+    progressEl.max = roundSize;
+    progressEl.value = index + 1;
   }
 
   function renderScore() {
@@ -75,7 +74,6 @@
     round++;
     nextEl.textContent = 'next (space)';
     renderScore();
-    renderStreak();
     draw();
   }
 
@@ -83,6 +81,7 @@
     var card = deck[index];
     positionEl.textContent = (index + 1) + ' of ' + roundSize + '   round ' + round;
     promptEl.textContent = card.name;
+    renderProgress();
     resultEl.hidden = true;
     guessEl.hidden = false;
   }
@@ -106,7 +105,6 @@
       ' — ' + label(card.answer);
 
     renderScore();
-    renderStreak();
 
     guessEl.hidden = true;
     resultEl.hidden = false;
@@ -121,6 +119,7 @@
 
     positionEl.textContent = 'round ' + round + ' complete';
     promptEl.textContent = score + '/' + roundSize;
+    progressEl.value = roundSize;
 
     verdictEl.textContent = grade + '. longest streak ' + bestStreak;
 

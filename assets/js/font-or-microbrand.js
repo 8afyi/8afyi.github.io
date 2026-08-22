@@ -102,7 +102,7 @@
       streak = 0;
     }
 
-    verdictEl.innerHTML = (correct ? '<ins>correct</ins>' : '<del>nope</del>') +
+    verdictEl.innerHTML = (correct ? '<ins>correct</ins>' : '<em>nope</em>') +
       ' — ' + label(card.answer);
 
     renderScore();
